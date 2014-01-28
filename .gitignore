@@ -2,6 +2,7 @@
 target/
 .~lock.*
 .DS_Store
+.project
 
 # Package Files #
 *.jar
