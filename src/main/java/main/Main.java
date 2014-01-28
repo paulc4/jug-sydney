@@ -29,7 +29,7 @@ import demo2.utils.BeanLogger;
 @ImportResource(value = "classpath:domain/db-config.xml")
 @ComponentScan(basePackages = { "demo2", "domain" })
 @EnableJpaRepositories(basePackages = "domain")
-//@EnableTransactionManagement
+// @EnableTransactionManagement
 public class Main extends SpringBootServletInitializer {
 
 	// Quick profile - see SimpleLocaleService
@@ -67,20 +67,20 @@ public class Main extends SpringBootServletInitializer {
 
 	/**
 	 * When running as a war, this class is picked up as the Servlet
-	 * Initialiser. You must override this abstract method to tell it what
-	 * Spring Boot Configuration file to use. In this case, it is using itself,
-	 * so it will pick up and use all the class annotations above to initialise
-	 * the application.
+	 * Initialiser. You must override this method to tell it what Spring Boot
+	 * Configuration file to use. In this case, it is using itself, so it will
+	 * pick up and use all the class annotations above to initialise the
+	 * application.
 	 * <p>
-	 * You <i>must</i> have a container that supports the Servlet 3 spec.
-	 * <p>
-	 * This used the be the abstract method on SpringBootServletInitializer but
-	 * it was changed to getConfigClass() in a later snapshot (after 02-Oct-13).
+	 * You <i>must</i> have a container that supports the Servlet 3 spec. To run
+	 * on Tomcat makes sure you have Tomcat V7.0.47 or later. Otherwise you will
+	 * get a <tt>ClassNotFoundException</tt>.
 	 */
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Main.class);
-    }
+	@Override
+	protected SpringApplicationBuilder configure(
+			SpringApplicationBuilder application) {
+		return application.sources(Main.class);
+	}
 
 	/**
 	 * When running as a Java application, Spring Boot will automatically run up

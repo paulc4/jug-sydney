@@ -62,7 +62,7 @@ public class LocaleController {
 				+ location
 				+ " this year are:"
 				+ getCourses(location)
-				+ "<p>All courses: <a href='/courses'>here</a></p></body></html>";
+				+ "<p>All courses: <a href='courses'>here</a></p></body></html>";
 	}
 
 	/**
