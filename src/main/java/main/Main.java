@@ -2,6 +2,7 @@ package main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
@@ -28,7 +29,7 @@ import demo2.utils.BeanLogger;
 @ImportResource(value = "classpath:domain/db-config.xml")
 @ComponentScan(basePackages = { "demo2", "domain" })
 @EnableJpaRepositories(basePackages = "domain")
-// @EnableTransactionManagement
+//@EnableTransactionManagement
 public class Main extends SpringBootServletInitializer {
 
 	// Quick profile - see SimpleLocaleService
@@ -76,18 +77,10 @@ public class Main extends SpringBootServletInitializer {
 	 * This used the be the abstract method on SpringBootServletInitializer but
 	 * it was changed to getConfigClass() in a later snapshot (after 02-Oct-13).
 	 */
-	// protected Class<?>[] getConfigClasses() {
-	// return new Class<?>[] { Main.class };
-	// }
-
-	/**
-	 * In later versions of Spring Data (after 02-Oct-2013) getConfigClasses()
-	 * is replaced by getConfigClass().
-	 */
-	// @Override
-	// protected Class<?> getConfigClass() {
-	// return Main.class;
-	// }
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Main.class);
+    }
 
 	/**
 	 * When running as a Java application, Spring Boot will automatically run up
@@ -104,7 +97,7 @@ public class Main extends SpringBootServletInitializer {
 	}
 
 	/**
-	 * Run the application using Spring Boot.
+	 * Initialise as Java application using Spring Boot.
 	 * 
 	 * @param args
 	 *            Any command line arguments.

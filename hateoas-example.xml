@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<accounts>
+	<!-- Account in credit - lots of options (links) -->
+	<account>
+		<account_number>12345</account_number>
+		<balance currency="usd">100.00</balance>
+		<link rel="deposit" href="/account/12345/deposit" />
+		<link rel="withdraw" href="/account/12345/withdraw" />
+		<link rel="transfer" href="/account/12345/transfer" />
+		<link rel="close" href="/account/12345/close" />
+	</account>
+
+	<!-- Account overdrawn, only deposit available. -->
+	<account>
+		<account_number>12346</account_number>
+		<balance currency="usd">-25.00</balance>
+		<link rel="deposit" href="/account/12345/deposit" />
+	</account>
+
+</accounts>
